@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI ScamShield | Smart Message Security</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="navbar">
+        <a href="#" class="brand">
+            <div class="brand-icon">🛡️</div>
+            <span>Scam<span class="accent">Shield</span></span>
+        </a>
+
+        <nav>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#scanner" class="nav-link">AI Scanner</a>
+            <a href="#awareness" class="nav-link">Safety Tips</a>
+        </nav>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            AI Security
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-badge">
+                <span>✦</span> SMARTER ONLINE SAFETY
+            </div>
+
+            <h1>Think Before You <span class="gradient-text">Click.</span></h1>
+
+            <p class="hero-description">
+                Your personal AI-powered security assistant.
+                Analyze suspicious messages and discover potential scam warning signs.
+            </p>
+
+            <a href="#scanner" class="primary-button">
+                Start Security Scan <span>→</span>
+            </a>
+
+            <div class="trust-note">
+                <span>🔒</span> Simple. Smart. Safer.
+            </div>
+        </section>
+
+        <section class="scanner-section" id="scanner">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">INTELLIGENT ANALYSIS</span>
+                    <h2>AI Message Scanner</h2>
+                    <p>Paste a suspicious message below to check its potential warning signs.</p>
+                </div>
+                <div class="scanner-icon">⌕</div>
+            </div>
+
+            <div class="scanner-card">
+                <label for="messageInput">YOUR MESSAGE</label>
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Paste your SMS, email, job offer, or suspicious message here..."
+                    maxlength="5000"
+                ></textarea>
+
+                <div class="input-footer">
+                    <span id="charCount">0 / 5000 characters</span>
+                    <button id="clearBtn" class="clear-button" type="button">Clear text</button>
+                </div>
+
+                <div class="examples">
+                    <span>Try an example:</span>
+                    <button class="sample-btn" data-sample="Congratulations! You have won ₹50,000. Pay ₹299 as a processing fee to claim your prize.">Prize Scam</button>
+                    <button class="sample-btn" data-sample="Your bank account will be blocked today. Click this unknown link and enter your banking PIN immediately.">Bank Alert</button>
+                    <button class="sample-btn" data-sample="Hi, our team meeting is scheduled for 3 PM tomorrow. Please review the project notes before the meeting.">Normal Message</button>
+                </div>
+
+                <button id="analyzeBtn" class="analyze-button" type="button">
+                    <span class="button-icon">✧</span>
+                    <span id="buttonText">Analyze Message with AI</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+                <p class="privacy-note">
+                    🔐 Avoid entering real passwords, OTPs, bank details, or other sensitive information.
+                </p>
+
+                <div id="loadingBox" class="loading-box hidden">
+                    <div class="loader"></div>
+                    <span>Analyzing message... Please wait.</span>
+                </div>
+
+                <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+                <section id="resultBox" class="result-box hidden" aria-live="polite">
+                    <div class="result-header">
+                        <div>
+                            <span class="eyebrow">SCAN REPORT</span>
+                            <h3>Analysis Results</h3>
+                        </div>
+                        <span id="riskBadge" class="risk-badge">ANALYZED</span>
+                    </div>
+
+                    <div class="risk-panel">
+                        <div class="risk-circle" id="riskCircle">
+                            <span id="riskScore">--</span>
+                            <small>/ 100</small>
+                        </div>
+                        <div class="risk-details">
+                            <span class="eyebrow">POTENTIAL RISK</span>
+                            <h4 id="riskTitle">Analysis complete</h4>
+                            <p id="riskSummary"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-content">
+                        <h4>🔎 Warning Signs</h4>
+                        <ul id="warningList"></ul>
+                    </div>
+
+                    <div class="result-content recommendation">
+                        <h4>🛡️ Safety Recommendations</h4>
+                        <ul id="safetyList"></ul>
+                    </div>
+
+                    <p class="disclaimer">
+                        AI analysis can make mistakes. This result is an initial assessment,
+                        not a guarantee that a message is safe or fraudulent.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <section class="awareness-section" id="awareness">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">STAY INFORMED</span>
+                    <h2>Know the Warning Signs</h2>
+                    <p>Learn to recognize common online scam techniques.</p>
+                </div>
+            </div>
+
+            <div class="tips-grid">
+                <article class="tip-card">
+                    <div class="tip-icon purple">💰</div>
+                    <h3>Prize & Lottery Scams</h3>
+                    <p>Be cautious of unexpected prizes that require advance payments or personal information.</p>
+                    <span class="tip-tag">CHECK BEFORE PAYING</span>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-icon blue">🏦</div>
+                    <h3>Banking Scams</h3>
+                    <p>Never share your OTP, PIN, password, or banking details in response to suspicious messages.</p>
+                    <span class="tip-tag">PROTECT YOUR DATA</span>
+                </article>
+
+                <article class="tip-card">
+                    <div class="tip-icon green">💼</div>
+                    <h3>Fake Job Offers</h3>
+                    <p>Verify the company independently before paying recruitment or registration fees.</p>
+                    <span class="tip-tag">VERIFY FIRST</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="disclaimer-banner">
+            <span class="banner-icon">ⓘ</span>
+            <div>
+                <strong>Stay alert, stay protected.</strong>
+                <p>No automated scanner can identify every scam. Verify suspicious requests through official channels.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="brand footer-brand">
+            <div class="brand-icon">🛡️</div>
+            <span>Scam<span class="accent">Shield</span></span>
+        </a>
+        <p>AI-Based Scam Message Detection & Awareness System</p>
+        <span class="footer-copy">Mini Project · 2026</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
